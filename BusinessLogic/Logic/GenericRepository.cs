@@ -1,0 +1,68 @@
+﻿using BusinessLogic.Data;
+using Core.Entities;
+using Core.Interfaces;
+using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Linq.Expressions;
+using System.Text;
+using System.Threading.Tasks;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
+
+namespace BusinessLogic.Logic
+{
+    public class GenericRepository<T> : IGenericRepository<T> where T : BaseClass
+    {
+        private readonly PS4DbContext _context;
+        //protected readonly DbSet<T> _dbSet;
+        public GenericRepository(PS4DbContext pS4DbContext)
+        {
+            //_dbSet = pS4DbContext.Set<T>();
+            _context = pS4DbContext;
+        }
+
+        public async Task<int> Add(T entity)
+        {
+            _context.Set<T>().Add(entity);
+            return await _context.SaveChangesAsync();
+        }
+
+        public async Task<int> Delete(T entity)
+        {
+            _context.Set<T>().Remove(entity);
+            return await _context.SaveChangesAsync();
+        }
+
+        public async Task<IReadOnlyList<T>> GetAllAsync()
+        {
+            return await _context.Set<T>().ToListAsync();
+        }
+
+        public async Task<T> GetByIdAsync(int Id)
+        {
+           return await _context.Set<T>().FindAsync(Id);
+        }
+
+        public async Task<IReadOnlyList<T>> GetByFilterAsync(Expression<Func<T, bool>> filter)
+        {
+            //IQueryable<T> query = _dbSet;
+            // Aplicar el filtro si se proporciona
+            //if (filter != null)
+            //{
+            //    query = query.Where(filter);
+            //}
+            //return await  query.ToListAsync();
+
+            return await _context.Set<T>().Where(filter).ToListAsync();
+
+        }
+
+        public async Task<int> Update(T entity)
+        {
+            _context.Set<T>().Attach(entity);
+            _context.Entry(entity).State = EntityState.Modified;
+            return await _context.SaveChangesAsync();
+        }
+    }
+}
