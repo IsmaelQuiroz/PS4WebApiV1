@@ -38,8 +38,7 @@
               "RelativeToolTip": "BusinessLogic\\Logic\\GenericRepository.cs",
               "ViewState": "AgIAABkAAAAAAAAAAAAAABwAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-07T18:38:16.612Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-07T18:38:16.612Z"
             },
             {
               "$type": "Document",
@@ -51,8 +50,7 @@
               "RelativeToolTip": "WebApi\\Properties\\launchSettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-05-07T17:11:28.96Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-07T17:11:28.96Z"
             },
             {
               "$type": "Document",
@@ -64,8 +62,7 @@
               "RelativeToolTip": "WebApi\\Program.cs",
               "ViewState": "AgIAAA0AAAAAAAAAAAAwwBgAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-06T17:01:52.092Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-06T17:01:52.092Z"
             },
             {
               "$type": "Document",
@@ -75,7 +72,7 @@
               "RelativeDocumentMoniker": "WebApi\\Controllers\\CategoryController.cs",
               "ToolTip": "C:\\Users\\IsmacarLabs\\Documents\\GitHub\\ApiS4\\NetPapeleriaS4\\WebApi\\Controllers\\CategoryController.cs",
               "RelativeToolTip": "WebApi\\Controllers\\CategoryController.cs",
-              "ViewState": "AgIAABgAAAAAAAAAAAAAAB4AAAANAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAABSAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-06T13:39:24.702Z",
               "EditorCaption": ""

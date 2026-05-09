@@ -74,19 +74,19 @@
   {
     "ContainingType": "WebApi.Controllers.CategoryController",
     "Method": "Put",
-    "RelativePath": "api/Category/{id}",
+    "RelativePath": "api/Category/update/{id}",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "id",
-        "Type": "System.Int32",
+        "Name": "category",
+        "Type": "Core.Entities.Category",
         "IsRequired": true
       },
       {
-        "Name": "category",
-        "Type": "Core.Entities.Category",
+        "Name": "id",
+        "Type": "System.Int32",
         "IsRequired": true
       }
     ],

@@ -127,7 +127,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/api/Category/update/{id}": {
       "put": {
         "tags": [
           "Category"

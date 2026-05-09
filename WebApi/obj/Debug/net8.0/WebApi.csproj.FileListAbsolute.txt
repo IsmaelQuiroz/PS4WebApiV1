@@ -148,3 +148,4 @@ C:\Users\IsmacarLabs\Documents\GitHub\ApiS4\NetPapeleriaS4\WebApi\bin\Debug\net8
 C:\Users\IsmacarLabs\Documents\GitHub\ApiS4\NetPapeleriaS4\WebApi\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\IsmacarLabs\Documents\GitHub\ApiS4\NetPapeleriaS4\WebApi\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
 C:\Users\IsmacarLabs\Documents\GitHub\ApiS4\NetPapeleriaS4\WebApi\obj\Debug\net8.0\WebApi.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\IsmacarLabs\Documents\GitHub\ApiS4\NetPapeleriaS4\WebApi\obj\Debug\net8.0\WebApi.sourcelink.json
