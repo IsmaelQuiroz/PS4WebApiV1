@@ -63,6 +63,15 @@ namespace WebApi.Controllers
             return Ok(category);
         }
 
-
+        [HttpDelete("{id}")]
+        public async Task<bool> delete(int id)
+        {
+            Category cat = await _categoryRepository.GetByIdAsync(id);
+            if (cat == null)
+            {
+                return false;
+            }
+           return  await _categoryRepository.Delete(cat);
+        }
     }
 }

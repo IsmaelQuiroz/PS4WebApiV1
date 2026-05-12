@@ -22,6 +22,6 @@ namespace Core.Interfaces
 
         Task<int> Update(T entity);
 
-        Task<int> Delete(T entity);
+        Task<bool> Delete(T entity);
     }
 }

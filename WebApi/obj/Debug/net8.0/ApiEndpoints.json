@@ -73,6 +73,32 @@
   },
   {
     "ContainingType": "WebApi.Controllers.CategoryController",
+    "Method": "delete",
+    "RelativePath": "api/Category/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Boolean",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "WebApi.Controllers.CategoryController",
     "Method": "Put",
     "RelativePath": "api/Category/update/{id}",
     "HttpMethod": "PUT",

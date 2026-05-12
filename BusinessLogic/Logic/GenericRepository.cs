@@ -28,10 +28,14 @@ namespace BusinessLogic.Logic
             return await _context.SaveChangesAsync();
         }
 
-        public async Task<int> Delete(T entity)
+        public async Task<bool> Delete(T entity)
         {
+            if (_context.Set<T>().Entry(entity).State == EntityState.Detached)
+            {
+                _context.Set<T>().Attach(entity);
+            }
             _context.Set<T>().Remove(entity);
-            return await _context.SaveChangesAsync();
+            return await _context.SaveChangesAsync() >0;
         }
 
         public async Task<IReadOnlyList<T>> GetAllAsync()
