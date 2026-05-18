@@ -1,6 +1,6 @@
 ﻿namespace WebApi.Dtos
 {
-    public class Pagination<T> where T : class
+    public class MyPagination<T> where T : class
     {
         public int Count { get; set; }
         public int PageIndex { get; set; }

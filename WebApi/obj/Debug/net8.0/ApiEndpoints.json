@@ -127,5 +127,31 @@
         "StatusCode": 200
       }
     ]
+  },
+  {
+    "ContainingType": "WebApi.Controllers.MonographController",
+    "Method": "Post",
+    "RelativePath": "api/Monograph",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "monograph",
+        "Type": "Core.Entities.Monograph",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Core.Entities.Monograph",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   }
 ]
