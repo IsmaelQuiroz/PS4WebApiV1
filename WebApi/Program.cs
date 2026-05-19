@@ -2,6 +2,7 @@ using BusinessLogic.Data;
 using BusinessLogic.Logic;
 using Core.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using WebApi.Dtos;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,11 +13,14 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddAutoMapper(typeof(MappingProfiles));
+
 var connString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<PS4DbContext>(options =>
     options.UseSqlServer(connString));
 
 //builder.Services.AddSwaggerGen()
+
 
 builder.Services.AddScoped(typeof(IGenericRepository<>), (typeof(GenericRepository<>)));
 

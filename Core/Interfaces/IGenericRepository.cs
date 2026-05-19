@@ -1,4 +1,5 @@
 ﻿using Core.Entities;
+using Core.Specifications;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,6 +23,10 @@ namespace Core.Interfaces
 
         Task<int> Update(T entity);
 
-        Task<int> Delete(T entity);
+        Task<bool> Delete(T entity);
+
+        //with Specifications
+        Task<IReadOnlyList<T>> GetAllWithSpec(ISpecification<T> spec);
+        Task<int> CountAsync(ISpecification<T> spec);
     }
 }

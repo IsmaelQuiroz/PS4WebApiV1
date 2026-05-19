@@ -15,3 +15,4 @@ C:\Users\IsmacarLabs\Documents\GitHub\ApiS4\NetPapeleriaS4\BusinessLogic\obj\Deb
 C:\Users\IsmacarLabs\Documents\GitHub\ApiS4\NetPapeleriaS4\BusinessLogic\obj\Debug\net8.0\BusinessLogic.pdb
 C:\Users\IsmacarLabs\Documents\GitHub\ApiS4\NetPapeleriaS4\BusinessLogic\obj\Debug\net8.0\BusinessLogic.genruntimeconfig.cache
 C:\Users\IsmacarLabs\Documents\GitHub\ApiS4\NetPapeleriaS4\BusinessLogic\obj\Debug\net8.0\ref\BusinessLogic.dll
+C:\Users\IsmacarLabs\Documents\GitHub\ApiS4\NetPapeleriaS4\BusinessLogic\obj\Debug\net8.0\BusinessLogic.sourcelink.json

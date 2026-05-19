@@ -34,6 +34,7 @@ namespace WebApi.Controllers
             return res;
         }
 
+
         [HttpPost]
         public async Task<ActionResult<Category>> Post(CategoryDto categoryDto)
         {
@@ -50,9 +51,8 @@ namespace WebApi.Controllers
         }
 
 
-
-        [HttpPut("{id}")]
-        public async Task<ActionResult<Category>> Put(int id, Category category)
+        [HttpPut("update/{id}")]
+        public async Task<ActionResult<Category>> Put(Category category, int id)
         {
             category.Id = id;
             var res =  await _categoryRepository.Update(category);
@@ -63,6 +63,15 @@ namespace WebApi.Controllers
             return Ok(category);
         }
 
-
+        [HttpDelete("{id}")]
+        public async Task<bool> delete(int id)
+        {
+            Category cat = await _categoryRepository.GetByIdAsync(id);
+            if (cat == null)
+            {
+                return false;
+            }
+           return  await _categoryRepository.Delete(cat);
+        }
     }
 }
