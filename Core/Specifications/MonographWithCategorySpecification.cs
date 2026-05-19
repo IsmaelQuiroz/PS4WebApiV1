@@ -16,7 +16,8 @@ namespace Core.Specifications
              )
         
         {
-            MyAddInclude(x => x.Category);
+            MyAddInclude(p => p.Category);
+            MyAddInclude(p => p.Product);
 
             MyApplyPaging(monographParams.PageSize * (monographParams.PageIndex - 1), monographParams.PageSize);
 
@@ -42,6 +43,7 @@ namespace Core.Specifications
         public MonographWithCategorySpecification(int id) : base ( x => x.Id == id)
         {
             MyAddInclude(p => p.Category);
+            MyAddInclude(p => p.Product);
         }
     }
 }

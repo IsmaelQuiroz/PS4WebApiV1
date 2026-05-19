@@ -4,6 +4,7 @@ namespace WebApi.Dtos
 {
     public class MonographDto
     {
+        public int Id { get; set; }
         public string Title { get; set; }
         public int Code { get; set; }
         public int CategoryId { get; set; }

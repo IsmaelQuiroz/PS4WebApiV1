@@ -12,9 +12,10 @@ namespace WebApi.Controllers
         private readonly IGenericRepository<Monograph> _monographRepository;
         private readonly IMapper _mapper;
 
-        public MonographController(IGenericRepository<Monograph> monographRepository)
+        public MonographController(IGenericRepository<Monograph> monographRepository, IMapper mapper)
         {
             _monographRepository = monographRepository;
+            _mapper = mapper;
         }
 
         [HttpPost]
@@ -33,7 +34,8 @@ namespace WebApi.Controllers
         {
             //  (Sort, CategoryId, Keyword, )
             var spec = new MonographWithCategorySpecification(monographParams);
-            IReadOnlyList<Monograph> monographs = await _monographRepository.GetAllWithSpec(spec);
+            //IReadOnlyList<Monograph> monographs = await _monographRepository.GetAllWithSpec(spec);
+            var monographs = await _monographRepository.GetAllWithSpec(spec);
 
             var specCount = new MonographForCountingSpecification(monographParams);
             int totalMonographs = await _monographRepository.CountAsync(specCount);
@@ -41,7 +43,8 @@ namespace WebApi.Controllers
             var totalPagesRounded = Math.Ceiling(Convert.ToDecimal(totalMonographs / monographParams.PageSize));
             int totalPages = Convert.ToInt32(totalPagesRounded);
 
-            IReadOnlyList<MonographDto> data = _mapper.Map<IReadOnlyList<Monograph>, IReadOnlyList<MonographDto>>(monographs);
+            //IReadOnlyList<MonographDto> data = _mapper.Map<IReadOnlyList<Monograph>, IReadOnlyList<MonographDto>>(monographs);
+            var data = _mapper.Map<IReadOnlyList<Monograph>, IReadOnlyList<MonographDto>>(monographs);
 
             return Ok(
                 new MyPagination<MonographDto>

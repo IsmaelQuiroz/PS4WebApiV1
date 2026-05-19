@@ -74,7 +74,7 @@ namespace BusinessLogic.Logic
 
         //Methods with specification pattern
         //Applicator of Specification evaluator 
-        public IQueryable<T> ApplySpecification(ISpecification<T> spec)
+        private IQueryable<T> ApplySpecification(ISpecification<T> spec)
         {
             return SpecificationEvaluator<T>.MakeQuery(_context.Set<T>().AsQueryable(), spec);
         }

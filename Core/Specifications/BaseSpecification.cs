@@ -18,7 +18,7 @@ namespace Core.Specifications
 
         public Expression<Func<T, bool>> MyCondition { get; } //Proviene de la Interface
 
-        public List<Expression<Func<T, object>>> MyIncludes => new List<Expression<Func<T, object>>>();
+        public List<Expression<Func<T, object>>> MyIncludes { get;  } = new List<Expression<Func<T, object>>>();
 
         protected void MyAddInclude(Expression<Func<T, object>> includeExpression)
         => MyIncludes.Add(includeExpression);
