@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\IsmacarLabs\\Documents\\GitHub\\ApiS4\\NetPapeleriaS4\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{5D518673-EAB1-415A-90FA-C1082136B611}|WebApi\\WebApi.csproj|c:\\users\\ismacarlabs\\documents\\github\\apis4\\netpapelerias4\\webapi\\dtos\\monographdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5D518673-EAB1-415A-90FA-C1082136B611}|WebApi\\WebApi.csproj|solutionrelative:webapi\\dtos\\monographdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{5D518673-EAB1-415A-90FA-C1082136B611}|WebApi\\WebApi.csproj|c:\\users\\ismacarlabs\\documents\\github\\apis4\\netpapelerias4\\webapi\\controllers\\monographcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5D518673-EAB1-415A-90FA-C1082136B611}|WebApi\\WebApi.csproj|solutionrelative:webapi\\controllers\\monographcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5D518673-EAB1-415A-90FA-C1082136B611}|WebApi\\WebApi.csproj|c:\\users\\ismacarlabs\\documents\\github\\apis4\\netpapelerias4\\webapi\\controllers\\categorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5D518673-EAB1-415A-90FA-C1082136B611}|WebApi\\WebApi.csproj|solutionrelative:webapi\\controllers\\categorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1B6CACD9-FAF1-411A-BCDA-6733B6132BEC}|BusinessLogic\\BusinessLogic.csproj|c:\\users\\ismacarlabs\\documents\\github\\apis4\\netpapelerias4\\businesslogic\\logic\\genericrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -22,30 +22,29 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "MonographDto.cs",
-              "DocumentMoniker": "C:\\Users\\IsmacarLabs\\Documents\\GitHub\\ApiS4\\NetPapeleriaS4\\WebApi\\Dtos\\MonographDto.cs",
-              "RelativeDocumentMoniker": "WebApi\\Dtos\\MonographDto.cs",
-              "ToolTip": "C:\\Users\\IsmacarLabs\\Documents\\GitHub\\ApiS4\\NetPapeleriaS4\\WebApi\\Dtos\\MonographDto.cs",
-              "RelativeToolTip": "WebApi\\Dtos\\MonographDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAsAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "CategoryController.cs",
+              "DocumentMoniker": "C:\\Users\\IsmacarLabs\\Documents\\GitHub\\ApiS4\\NetPapeleriaS4\\WebApi\\Controllers\\CategoryController.cs",
+              "RelativeDocumentMoniker": "WebApi\\Controllers\\CategoryController.cs",
+              "ToolTip": "C:\\Users\\IsmacarLabs\\Documents\\GitHub\\ApiS4\\NetPapeleriaS4\\WebApi\\Controllers\\CategoryController.cs",
+              "RelativeToolTip": "WebApi\\Controllers\\CategoryController.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAAAAAEIAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-18T22:45:07.913Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-19T18:30:59.783Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "MonographController.cs",
               "DocumentMoniker": "C:\\Users\\IsmacarLabs\\Documents\\GitHub\\ApiS4\\NetPapeleriaS4\\WebApi\\Controllers\\MonographController.cs",
               "RelativeDocumentMoniker": "WebApi\\Controllers\\MonographController.cs",
               "ToolTip": "C:\\Users\\IsmacarLabs\\Documents\\GitHub\\ApiS4\\NetPapeleriaS4\\WebApi\\Controllers\\MonographController.cs",
               "RelativeToolTip": "WebApi\\Controllers\\MonographController.cs",
-              "ViewState": "AgIAACIAAAAAAAAAAAAlwDIAAAARAAAAAAAAAA==",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAACAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-18T21:01:52.677Z",
               "EditorCaption": ""
@@ -58,10 +57,9 @@
               "RelativeDocumentMoniker": "BusinessLogic\\Logic\\GenericRepository.cs",
               "ToolTip": "C:\\Users\\IsmacarLabs\\Documents\\GitHub\\ApiS4\\NetPapeleriaS4\\BusinessLogic\\Logic\\GenericRepository.cs",
               "RelativeToolTip": "BusinessLogic\\Logic\\GenericRepository.cs",
-              "ViewState": "AgIAADsAAAAAAAAAAAAAAFQAAAArAAAAAAAAAA==",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAewB8AAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-18T20:54:23.355Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-18T20:54:23.355Z"
             }
           ]
         }
