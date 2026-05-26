@@ -3,6 +3,7 @@ using Core.Entities;
 using Core.Interfaces;
 using Core.Specifications;
 using Microsoft.AspNetCore.Mvc;
+using System.Runtime.CompilerServices;
 using WebApi.Dtos;
 
 namespace WebApi.Controllers
@@ -16,6 +17,18 @@ namespace WebApi.Controllers
         {
             _monographRepository = monographRepository;
             _mapper = mapper;
+        }
+
+        [HttpGet("{id}")]
+        public async Task<ActionResult<MonographDto>> getMonograph(int id)
+        {
+            Monograph monograph = await _monographRepository.GetByIdAsync(id);
+            if(monograph == null)
+            {
+                throw new Exception("The monograph could not be found.");
+            }
+            MonographDto monographDto = _mapper.Map<Monograph, MonographDto>(monograph);
+            return Ok(monographDto);
         }
 
         [HttpPost]
@@ -56,6 +69,30 @@ namespace WebApi.Controllers
                     PageCount = totalPages
                 }
              );
+        }
+
+        [HttpPut("{id}")]
+        public async Task<ActionResult<Monograph>> Put(int id, Monograph monograph)
+        {
+            monograph.Id = id;
+            var result = await _monographRepository.Update(monograph);
+            if(result == 0)
+            {
+                throw new Exception("Update Monograph was not successful");
+            }
+            return Ok(monograph);
+        }
+
+
+        [HttpDelete("{id}")]
+        public async Task<bool> Delete(int id)
+        {
+            Monograph entity = await _monographRepository.GetByIdAsync(id);
+            if(entity ==null)
+            {
+                throw new Exception("Delete Monograph was not successful");
+            }
+            return await _monographRepository.Delete(entity);
         }
     }
 }
