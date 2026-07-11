@@ -19,6 +19,11 @@ var connString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<PS4DbContext>(options =>
     options.UseSqlServer(connString));
 
+builder.Services.AddDbContext<SeguridadDbContext>(options =>
+{
+    options.UseSqlServer(builder.Configuration.GetConnectionString("IdentitySeguridad"));
+});
+
 //builder.Services.AddSwaggerGen()
 
 
