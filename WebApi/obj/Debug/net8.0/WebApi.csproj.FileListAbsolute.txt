@@ -142,10 +142,16 @@ C:\Users\IsmacarLabs\Documents\GitHub\ApiS4\NetPapeleriaS4\WebApi\obj\Debug\net8
 C:\Users\IsmacarLabs\Documents\GitHub\ApiS4\NetPapeleriaS4\WebApi\obj\Debug\net8.0\WebApi.pdb
 C:\Users\IsmacarLabs\Documents\GitHub\ApiS4\NetPapeleriaS4\WebApi\obj\Debug\net8.0\WebApi.genruntimeconfig.cache
 C:\Users\IsmacarLabs\Documents\GitHub\ApiS4\NetPapeleriaS4\WebApi\obj\Debug\net8.0\ref\WebApi.dll
-C:\Users\IsmacarLabs\Documents\GitHub\ApiS4\NetPapeleriaS4\WebApi\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 C:\Users\IsmacarLabs\Documents\GitHub\ApiS4\NetPapeleriaS4\WebApi\bin\Debug\net8.0\Microsoft.OpenApi.dll
 C:\Users\IsmacarLabs\Documents\GitHub\ApiS4\NetPapeleriaS4\WebApi\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\IsmacarLabs\Documents\GitHub\ApiS4\NetPapeleriaS4\WebApi\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\IsmacarLabs\Documents\GitHub\ApiS4\NetPapeleriaS4\WebApi\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
 C:\Users\IsmacarLabs\Documents\GitHub\ApiS4\NetPapeleriaS4\WebApi\obj\Debug\net8.0\WebApi.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\IsmacarLabs\Documents\GitHub\ApiS4\NetPapeleriaS4\WebApi\obj\Debug\net8.0\WebApi.sourcelink.json
+C:\Users\IsmacarLabs\Documents\GitHub\ApiS4\NetPapeleriaS4\WebApi\bin\Debug\net8.0\AutoMapper.dll
+C:\Users\IsmacarLabs\Documents\GitHub\ApiS4\NetPapeleriaS4\WebApi\bin\Debug\net8.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\IsmacarLabs\Documents\GitHub\ApiS4\NetPapeleriaS4\WebApi\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\IsmacarLabs\Documents\GitHub\ApiS4\NetPapeleriaS4\WebApi\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\IsmacarLabs\Documents\GitHub\ApiS4\NetPapeleriaS4\WebApi\bin\Debug\net8.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\IsmacarLabs\Documents\GitHub\ApiS4\NetPapeleriaS4\WebApi\bin\Debug\net8.0\Microsoft.Extensions.Identity.Core.dll
+C:\Users\IsmacarLabs\Documents\GitHub\ApiS4\NetPapeleriaS4\WebApi\bin\Debug\net8.0\Microsoft.Extensions.Identity.Stores.dll

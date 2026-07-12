@@ -1,6 +1,8 @@
 using BusinessLogic.Data;
 using BusinessLogic.Logic;
+using Core.Entities;
 using Core.Interfaces;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using WebApi.Dtos;
 
@@ -9,7 +11,15 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllers();
 
-    //for  Swagger
+//After prepare Usuario Entity Migration but before apply
+//builder = new IdentityBuilder(builder.UserType, builder.Services); //esto es lo que necesita el objeto para poder construir las tablas desde el modelo del IdentityCore
+
+builder.Services.AddIdentityCore<Usuario>()
+    .AddEntityFrameworkStores<SeguridadDbContext>()
+    .AddSignInManager<SignInManager<Usuario>>()
+    .AddDefaultTokenProviders(); 
+
+//for  Swagger
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
