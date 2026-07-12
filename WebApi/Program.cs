@@ -16,8 +16,9 @@ builder.Services.AddControllers();
 
 builder.Services.AddIdentityCore<Usuario>()
     .AddEntityFrameworkStores<SeguridadDbContext>()
-    .AddSignInManager<SignInManager<Usuario>>()
-    .AddDefaultTokenProviders(); 
+    .AddSignInManager<SignInManager<Usuario>>();
+    //.AddDefaultTokenProviders();
+
 
 //for  Swagger
 builder.Services.AddEndpointsApiExplorer();
@@ -32,7 +33,9 @@ builder.Services.AddDbContext<PS4DbContext>(options =>
 builder.Services.AddDbContext<SeguridadDbContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("IdentitySeguridad"));
+
 });
+
 
 //builder.Services.AddSwaggerGen()
 
@@ -47,6 +50,7 @@ builder.Services.AddCors(opt =>
     });
 });
 
+builder.Services.AddSingleton(TimeProvider.System);
 
 var app = builder.Build();
 
@@ -72,6 +76,18 @@ using (var scope = app.Services.CreateScope())
 
         //Create file in case of use.
         await PS4DbContextData.AsyncDataLoading(context, loggerFactory);
+
+
+        //otra forma de crar el scope 
+        //using var scope = builder.Services.BuildServiceProvider().CreateScope();
+        //var services = scope.ServiceProvider;
+
+        //Obtener los servicios normalmente
+        var userManager = services.GetRequiredService<UserManager<Usuario>>();
+        var identityContext = services.GetRequiredService<SeguridadDbContext>();
+        await identityContext.Database.MigrateAsync();
+        await SeguridadDbContextData.SeedUserAsync(userManager);
+
     }
     catch (Exception ex)
     {

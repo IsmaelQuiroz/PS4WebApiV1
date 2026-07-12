@@ -21,7 +21,8 @@ namespace BusinessLogic.Data
                     UserName = "iquirozs"
                 };
 
-                await userManager.CreateAsync(usuario,"iquirozs2026$");
+                await userManager.CreateAsync(usuario, "Iquirozs2026$_");
+            }
         } 
     }
 }
