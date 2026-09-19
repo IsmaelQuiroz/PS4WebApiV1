@@ -1,6 +1,8 @@
 using BusinessLogic.Data;
 using BusinessLogic.Logic;
+using Core.Entities;
 using Core.Interfaces;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using WebApi.Dtos;
 
@@ -9,7 +11,16 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllers();
 
-    //for  Swagger
+//After prepare Usuario Entity Migration but before apply
+//builder = new IdentityBuilder(builder.UserType, builder.Services); //esto es lo que necesita el objeto para poder construir las tablas desde el modelo del IdentityCore
+
+builder.Services.AddIdentityCore<Usuario>()
+    .AddEntityFrameworkStores<SeguridadDbContext>()
+    .AddSignInManager<SignInManager<Usuario>>();
+    //.AddDefaultTokenProviders();
+
+
+//for  Swagger
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -18,6 +29,13 @@ builder.Services.AddAutoMapper(typeof(MappingProfiles));
 var connString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<PS4DbContext>(options =>
     options.UseSqlServer(connString));
+
+builder.Services.AddDbContext<SeguridadDbContext>(options =>
+{
+    options.UseSqlServer(builder.Configuration.GetConnectionString("IdentitySeguridad"));
+
+});
+
 
 //builder.Services.AddSwaggerGen()
 
@@ -32,6 +50,7 @@ builder.Services.AddCors(opt =>
     });
 });
 
+builder.Services.AddSingleton(TimeProvider.System);
 
 var app = builder.Build();
 
@@ -57,6 +76,18 @@ using (var scope = app.Services.CreateScope())
 
         //Create file in case of use.
         await PS4DbContextData.AsyncDataLoading(context, loggerFactory);
+
+
+        //otra forma de crar el scope 
+        //using var scope = builder.Services.BuildServiceProvider().CreateScope();
+        //var services = scope.ServiceProvider;
+
+        //Obtener los servicios normalmente
+        var userManager = services.GetRequiredService<UserManager<Usuario>>();
+        var identityContext = services.GetRequiredService<SeguridadDbContext>();
+        await identityContext.Database.MigrateAsync();
+        await SeguridadDbContextData.SeedUserAsync(userManager);
+
     }
     catch (Exception ex)
     {
