@@ -27,7 +27,10 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddAutoMapper(typeof(MappingProfiles));
 
-var connString = builder.Configuration.GetConnectionString("DefaultConnection");
+
+//var connString = builder.Configuration.GetConnectionString("DefaultConnection");
+var connString = builder.Configuration.GetValue<string>("ConnectionStrings:DefaultConnection");
+
 builder.Services.AddDbContext<PS4DbContext>(options =>
     options.UseNpgsql(connString));
 

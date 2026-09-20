@@ -3,12 +3,11 @@
   "WorkspaceRootPath": "C:\\Users\\IsmacarLabs\\Documents\\GitHub\\ApiS4\\NetPapeleriaS4\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{5D518673-EAB1-415A-90FA-C1082136B611}|WebApi\\WebApi.csproj|c:\\users\\ismacarlabs\\documents\\github\\apis4\\netpapelerias4\\webapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{5D518673-EAB1-415A-90FA-C1082136B611}|WebApi\\WebApi.csproj|solutionrelative:webapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{5D518673-EAB1-415A-90FA-C1082136B611}|WebApi\\WebApi.csproj|c:\\users\\ismacarlabs\\documents\\github\\apis4\\netpapelerias4\\webapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5D518673-EAB1-415A-90FA-C1082136B611}|WebApi\\WebApi.csproj|solutionrelative:webapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\IsmacarLabs\\AppData\\Roaming\\Microsoft\\UserSecrets\\28b53a91-4a24-4313-b1a7-f09abac61f4f\\secrets.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5D518673-EAB1-415A-90FA-C1082136B611}|WebApi\\WebApi.csproj|c:\\users\\ismacarlabs\\documents\\github\\apis4\\netpapelerias4\\webapi\\webapi.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
@@ -21,10 +20,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{1B6CACD9-FAF1-411A-BCDA-6733B6132BEC}|BusinessLogic\\BusinessLogic.csproj|c:\\users\\ismacarlabs\\documents\\github\\apis4\\netpapelerias4\\businesslogic\\data\\ps4dbcontextdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1B6CACD9-FAF1-411A-BCDA-6733B6132BEC}|BusinessLogic\\BusinessLogic.csproj|solutionrelative:businesslogic\\data\\ps4dbcontextdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1B6CACD9-FAF1-411A-BCDA-6733B6132BEC}|BusinessLogic\\BusinessLogic.csproj|c:\\users\\ismacarlabs\\documents\\github\\apis4\\netpapelerias4\\businesslogic\\data\\ps4dbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1B6CACD9-FAF1-411A-BCDA-6733B6132BEC}|BusinessLogic\\BusinessLogic.csproj|solutionrelative:businesslogic\\data\\ps4dbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,43 +29,30 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\IsmacarLabs\\Documents\\GitHub\\ApiS4\\NetPapeleriaS4\\WebApi\\appsettings.json",
-              "RelativeDocumentMoniker": "WebApi\\appsettings.json",
-              "ToolTip": "C:\\Users\\IsmacarLabs\\Documents\\GitHub\\ApiS4\\NetPapeleriaS4\\WebApi\\appsettings.json",
-              "RelativeToolTip": "WebApi\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAnAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-09-20T05:16:42.502Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "PS4DbContext.cs",
-              "DocumentMoniker": "C:\\Users\\IsmacarLabs\\Documents\\GitHub\\ApiS4\\NetPapeleriaS4\\BusinessLogic\\Data\\PS4DbContext.cs",
-              "RelativeDocumentMoniker": "BusinessLogic\\Data\\PS4DbContext.cs",
-              "ToolTip": "C:\\Users\\IsmacarLabs\\Documents\\GitHub\\ApiS4\\NetPapeleriaS4\\BusinessLogic\\Data\\PS4DbContext.cs",
-              "RelativeToolTip": "BusinessLogic\\Data\\PS4DbContext.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAwAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-20T04:44:34.282Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "secrets.json",
+              "DocumentMoniker": "C:\\Users\\IsmacarLabs\\AppData\\Roaming\\Microsoft\\UserSecrets\\28b53a91-4a24-4313-b1a7-f09abac61f4f\\secrets.json",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\AppData\\Roaming\\Microsoft\\UserSecrets\\28b53a91-4a24-4313-b1a7-f09abac61f4f\\secrets.json",
+              "ToolTip": "C:\\Users\\IsmacarLabs\\AppData\\Roaming\\Microsoft\\UserSecrets\\28b53a91-4a24-4313-b1a7-f09abac61f4f\\secrets.json",
+              "RelativeToolTip": "..\\..\\..\\..\\AppData\\Roaming\\Microsoft\\UserSecrets\\28b53a91-4a24-4313-b1a7-f09abac61f4f\\secrets.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-09-20T22:06:58.282Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\IsmacarLabs\\Documents\\GitHub\\ApiS4\\NetPapeleriaS4\\WebApi\\Program.cs",
               "RelativeDocumentMoniker": "WebApi\\Program.cs",
               "ToolTip": "C:\\Users\\IsmacarLabs\\Documents\\GitHub\\ApiS4\\NetPapeleriaS4\\WebApi\\Program.cs",
               "RelativeToolTip": "WebApi\\Program.cs",
-              "ViewState": "AgIAADwAAAAAAAAAAAAvwE8AAAA5AAAAAAAAAA==",
+              "ViewState": "AgIAABIAAAAAAAAAAAAvwBwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-09-20T04:22:24.108Z",
               "EditorCaption": ""
@@ -78,28 +60,26 @@
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "WebApi",
+              "Title": "WebApi.csproj",
               "DocumentMoniker": "C:\\Users\\IsmacarLabs\\Documents\\GitHub\\ApiS4\\NetPapeleriaS4\\WebApi\\WebApi.csproj",
               "RelativeDocumentMoniker": "WebApi\\WebApi.csproj",
               "ToolTip": "C:\\Users\\IsmacarLabs\\Documents\\GitHub\\ApiS4\\NetPapeleriaS4\\WebApi\\WebApi.csproj",
               "RelativeToolTip": "WebApi\\WebApi.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2026-09-20T04:20:25.168Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-09-20T04:20:25.168Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "BusinessLogic",
+              "Title": "BusinessLogic.csproj",
               "DocumentMoniker": "C:\\Users\\IsmacarLabs\\Documents\\GitHub\\ApiS4\\NetPapeleriaS4\\BusinessLogic\\BusinessLogic.csproj",
               "RelativeDocumentMoniker": "BusinessLogic\\BusinessLogic.csproj",
               "ToolTip": "C:\\Users\\IsmacarLabs\\Documents\\GitHub\\ApiS4\\NetPapeleriaS4\\BusinessLogic\\BusinessLogic.csproj",
               "RelativeToolTip": "BusinessLogic\\BusinessLogic.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2026-09-20T00:20:06.1Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-09-20T00:20:06.1Z"
             },
             {
               "$type": "Document",
@@ -111,8 +91,7 @@
               "RelativeToolTip": "BusinessLogic\\Data\\PS4DbContextData.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-20T00:17:00.639Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-09-20T00:17:00.639Z"
             }
           ]
         }
