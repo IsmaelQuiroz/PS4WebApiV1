@@ -84,11 +84,12 @@ using (var scope = app.Services.CreateScope())
         //using var scope = builder.Services.BuildServiceProvider().CreateScope();
         //var services = scope.ServiceProvider;
 
+        //Esta seccion se habilitara cuando se agregguen las migraciones de seguridad
         //Obtener los servicios normalmente
-        var userManager = services.GetRequiredService<UserManager<Usuario>>();
-        var identityContext = services.GetRequiredService<SeguridadDbContext>();
-        await identityContext.Database.MigrateAsync();
-        await SeguridadDbContextData.SeedUserAsync(userManager);
+        //var userManager = services.GetRequiredService<UserManager<Usuario>>();
+        //var identityContext = services.GetRequiredService<SeguridadDbContext>();
+        //await identityContext.Database.MigrateAsync();
+        //await SeguridadDbContextData.SeedUserAsync(userManager);
 
     }
     catch (Exception ex)
