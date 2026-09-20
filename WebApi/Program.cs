@@ -14,10 +14,11 @@ builder.Services.AddControllers();
 //After prepare Usuario Entity Migration but before apply
 //builder = new IdentityBuilder(builder.UserType, builder.Services); //esto es lo que necesita el objeto para poder construir las tablas desde el modelo del IdentityCore
 
-builder.Services.AddIdentityCore<Usuario>()
-    .AddEntityFrameworkStores<SeguridadDbContext>()
-    .AddSignInManager<SignInManager<Usuario>>();
-    //.AddDefaultTokenProviders();
+//para implementar seguridad
+//builder.Services.AddIdentityCore<Usuario>()
+//    .AddEntityFrameworkStores<SeguridadDbContext>()
+//    .AddSignInManager<SignInManager<Usuario>>();
+//    //.AddDefaultTokenProviders();
 
 
 //for  Swagger
@@ -28,13 +29,14 @@ builder.Services.AddAutoMapper(typeof(MappingProfiles));
 
 var connString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<PS4DbContext>(options =>
-    options.UseSqlServer(connString));
+    options.UseNpgsql(connString));
 
-builder.Services.AddDbContext<SeguridadDbContext>(options =>
-{
-    options.UseSqlServer(builder.Configuration.GetConnectionString("IdentitySeguridad"));
+//Para implementar seguridad
+//builder.Services.AddDbContext<SeguridadDbContext>(options =>
+//{
+//    options.UseNpgsql(builder.Configuration.GetConnectionString("IdentitySeguridad"));
 
-});
+//});
 
 
 //builder.Services.AddSwaggerGen()
