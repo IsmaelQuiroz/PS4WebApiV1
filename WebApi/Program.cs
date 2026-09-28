@@ -14,10 +14,11 @@ builder.Services.AddControllers();
 //After prepare Usuario Entity Migration but before apply
 //builder = new IdentityBuilder(builder.UserType, builder.Services); //esto es lo que necesita el objeto para poder construir las tablas desde el modelo del IdentityCore
 
-builder.Services.AddIdentityCore<Usuario>()
-    .AddEntityFrameworkStores<SeguridadDbContext>()
-    .AddSignInManager<SignInManager<Usuario>>();
-    //.AddDefaultTokenProviders();
+//para implementar seguridad
+//builder.Services.AddIdentityCore<Usuario>()
+//    .AddEntityFrameworkStores<SeguridadDbContext>()
+//    .AddSignInManager<SignInManager<Usuario>>();
+//    //.AddDefaultTokenProviders();
 
 
 //for  Swagger
@@ -26,15 +27,19 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddAutoMapper(typeof(MappingProfiles));
 
-var connString = builder.Configuration.GetConnectionString("DefaultConnection");
+
+//var connString = builder.Configuration.GetConnectionString("DefaultConnection");
+var connString = builder.Configuration.GetValue<string>("ConnectionStrings:DefaultConnection");
+
 builder.Services.AddDbContext<PS4DbContext>(options =>
-    options.UseSqlServer(connString));
+    options.UseNpgsql(connString));
 
-builder.Services.AddDbContext<SeguridadDbContext>(options =>
-{
-    options.UseSqlServer(builder.Configuration.GetConnectionString("IdentitySeguridad"));
+//Para implementar seguridad
+//builder.Services.AddDbContext<SeguridadDbContext>(options =>
+//{
+//    options.UseNpgsql(builder.Configuration.GetConnectionString("IdentitySeguridad"));
 
-});
+//});
 
 
 //builder.Services.AddSwaggerGen()
@@ -82,11 +87,12 @@ using (var scope = app.Services.CreateScope())
         //using var scope = builder.Services.BuildServiceProvider().CreateScope();
         //var services = scope.ServiceProvider;
 
+        //Esta seccion se habilitara cuando se agregguen las migraciones de seguridad
         //Obtener los servicios normalmente
-        var userManager = services.GetRequiredService<UserManager<Usuario>>();
-        var identityContext = services.GetRequiredService<SeguridadDbContext>();
-        await identityContext.Database.MigrateAsync();
-        await SeguridadDbContextData.SeedUserAsync(userManager);
+        //var userManager = services.GetRequiredService<UserManager<Usuario>>();
+        //var identityContext = services.GetRequiredService<SeguridadDbContext>();
+        //await identityContext.Database.MigrateAsync();
+        //await SeguridadDbContextData.SeedUserAsync(userManager);
 
     }
     catch (Exception ex)

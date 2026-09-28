@@ -46,12 +46,16 @@ namespace WebApi.Controllers
         public async Task<ActionResult<MyPagination<MonographDto>>> GetMonographs([FromQuery] MonographSpecificationParams monographParams)
         {
             //  (Sort, CategoryId, Keyword, )
-            var spec = new MonographWithCategorySpecification(monographParams);
+            //var spec = new MonographWithCategorySpecification(monographParams);
+
+            // Search by text
+            var spec = new MonographWithTextSpecification(monographParams);
+
             //IReadOnlyList<Monograph> monographs = await _monographRepository.GetAllWithSpec(spec);
             var monographs = await _monographRepository.GetAllWithSpec(spec);
 
             var specCount = new MonographForCountingSpecification(monographParams);
-            int totalMonographs = await _monographRepository.CountAsync(specCount);
+            var totalMonographs = await _monographRepository.CountAsync(specCount);
 
             var totalPagesRounded = Math.Ceiling(Convert.ToDecimal(totalMonographs / monographParams.PageSize));
             int totalPages = Convert.ToInt32(totalPagesRounded);

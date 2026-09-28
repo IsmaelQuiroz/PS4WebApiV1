@@ -19,7 +19,7 @@ namespace Core.Specifications
             set => _pageSize = (value > MaxPageSize) ? MaxPageSize : value;
         }
         public string? Keyword { get; set; }
-        public string? Search { get; set; }
+        public string? Search { get; set; } //should look for text, in title, category Name and keyword 
 
     }
 }
