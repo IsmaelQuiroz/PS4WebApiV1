@@ -39,6 +39,8 @@ namespace BusinessLogic.Logic
             return await _context.SaveChangesAsync() >0;
         }
 
+
+
         public async Task<IReadOnlyList<T>> GetAllAsync()
         {
             return await _context.Set<T>().ToListAsync();
