@@ -46,6 +46,7 @@ builder.Services.AddDbContext<PS4DbContext>(options =>
 
 
 builder.Services.AddScoped(typeof(IGenericRepository<>), (typeof(GenericRepository<>)));
+builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 
 builder.Services.AddCors(opt =>
 {
