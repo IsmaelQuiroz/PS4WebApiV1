@@ -15,5 +15,7 @@ public interface ICategoryRepository : IGenericRepository<Category>
 
     Task<(int statusCode, string message)> deleteCategory(int id);
 
+    Task<(int statusCode, string message)> updateCategory(Category cat);
+
     Task<int> getIdByName(string name); 
 }

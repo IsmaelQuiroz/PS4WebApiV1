@@ -43,12 +43,13 @@ public class CategoryController : BaseApiController
     public async Task<ActionResult<Category>> Put(Category category, int id)
     {
         category.Id = id;
-        var res = await _categoryRepository.Update(category);
-        if (res == 0)
+        var res = await _categoryRepository.updateCategory(category);
+        if(res.statusCode == 1)
         {
-            throw new Exception("No se pudo actualizar la categoria");
+            return Ok(category);
+            
         }
-        return Ok(category);
+        return BadRequest(new CodeErrorResponse(res.statusCode, res.message));
     }
 
     [HttpPost]

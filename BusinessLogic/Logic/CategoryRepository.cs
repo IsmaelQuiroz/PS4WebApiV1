@@ -21,7 +21,7 @@ public class CategoryRepository : GenericRepository<Category>, ICategoryReposito
 
     public async Task<(int statusCode, string message)> addCategory(Category cat)
     {
-        var duplicatedName = await existNameAsync(cat);
+        var duplicatedName = await existNameAsync(cat.Name);
 
         if (duplicatedName  == 0)
         {
@@ -33,16 +33,16 @@ public class CategoryRepository : GenericRepository<Category>, ICategoryReposito
         }
         else if(duplicatedName > 0)
         {
-            return (409, "La categoría ya existe en la Base de Datos");
+            return (409, "Ya existe una Categoría con el mismo nombre");
         }
          
         //throw new InvalidOperationException("The Category already exists");
         return (0,"La Categoría NO pudo ser guardada");
     }
 
-    private async Task<int> existNameAsync(Category cat)
+    private async Task<int> existNameAsync(string name)
     {
-        var existName = await _context.Category.Where(c => c.Name.ToUpper() == cat.Name.ToUpper()).CountAsync();
+        var existName = await _context.Category.Where(c => c.Name.ToUpper() == name.ToUpper()).CountAsync();
         return existName;
     }
 
@@ -50,7 +50,7 @@ public class CategoryRepository : GenericRepository<Category>, ICategoryReposito
     public async Task<(int statusCode, string message)> deleteCategory(int id)
     {
         var categoryToDelete = await _context.Category.FindAsync(id);
-        int catIdGeneral = await getIdByName("General".ToUpper());
+        int catIdGeneral = await getIdByName("GENERAL");
         if(categoryToDelete != null)
         {
             if(categoryToDelete.Name.ToUpper() == "GENERAL" || categoryToDelete.Name.ToUpper() == "GENERALES")
@@ -71,8 +71,36 @@ public class CategoryRepository : GenericRepository<Category>, ICategoryReposito
         else
         {
             return (404, "No se encontró la Categoría buscada");
+        }           
+    }
+
+    public async Task<(int statusCode, string message)> updateCategory(Category cat)
+    {
+        //get categoryToUpdate to validate its name
+        //var categoryToUpdate = await _context.Category.FindAsync(cat.Id);
+        // var catIdGeneral = await getIdByName("GENERAL");
+        if (cat.Name.ToUpper() == "GENERAL")
+        {
+            return (409, "La Categoría General es reservada para el sistema");
         }
-           
+        else
+        {
+            //validate if the Name is duplicated
+            var nameIsDuplicated = await existNameAsync(cat.Name);
+            if (nameIsDuplicated > 0)
+            {
+                return (409, "Ya existe una Categoría con el mismo nombre");
+            }
+        }
+        _context.Category.Attach(cat);
+        _context.Entry(cat).State = EntityState.Modified;
+        int res = await _context.SaveChangesAsync();
+        if(res > 0)
+        {
+            return (res, "Categoría Actualizada con éxito!");
+        }
+        return (404, "No se pudo realizar la actualización");
+
     }
 
     public async Task<int> getIdByName(string name)
@@ -85,4 +113,6 @@ public class CategoryRepository : GenericRepository<Category>, ICategoryReposito
 
         return category.Id;
     }
+
+
 }
