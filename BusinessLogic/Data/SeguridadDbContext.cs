@@ -8,19 +8,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BusinessLogic.Data
+namespace BusinessLogic.Data;
+
+public class SeguridadDbContext : IdentityDbContext<Usuario>
 {
-    public class SeguridadDbContext : IdentityDbContext<Usuario>
+    public SeguridadDbContext(DbContextOptions<SeguridadDbContext> options)
+        : base(options)
     {
-        public SeguridadDbContext(DbContextOptions<SeguridadDbContext> options)
-            :base(options)
-        {
 
-        }
+    }
 
-        protected override void OnModelCreating(ModelBuilder builder)
-        {
-            base.OnModelCreating(builder);
-        }
+    protected override void OnModelCreating(ModelBuilder builder)
+    {
+        base.OnModelCreating(builder);
     }
 }
+
+//Command for migrations --> Developer PowerShell
+//root> dotnet  ef migrations add SeguridadInicio -p BusinessLogic -s WebApi -o Identity/Migrations -c SeguridadDbContext

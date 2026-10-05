@@ -1,53 +1,62 @@
 using BusinessLogic.Data;
+using BusinessLogic.Data.DataServices;
 using BusinessLogic.Logic;
 using Core.Entities;
 using Core.Interfaces;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 using WebApi.Dtos;
 
 var builder = WebApplication.CreateBuilder(args);
 
+
 // Add services to the container.
 builder.Services.AddControllers();
 
-//After prepare Usuario Entity Migration but before apply
-//builder = new IdentityBuilder(builder.UserType, builder.Services); //esto es lo que necesita el objeto para poder construir las tablas desde el modelo del IdentityCore
-
-//para implementar seguridad
-//builder.Services.AddIdentityCore<Usuario>()
-//    .AddEntityFrameworkStores<SeguridadDbContext>()
-//    .AddSignInManager<SignInManager<Usuario>>();
-//    //.AddDefaultTokenProviders();
+//After prepare Usuario Entity Migration but before apply ??
+/*builder = new IdentityBuilder(builder.UserType, builder.Services);*/                                                                                //esto es lo que necesita el objeto para poder construir las tablas desde el modelo del IdentityCore
 
 
-//for  Swagger
+//Swagger
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+//Automaper
 builder.Services.AddAutoMapper(typeof(MappingProfiles));
 
 
+//DB Context & Connection
 //var connString = builder.Configuration.GetConnectionString("DefaultConnection");
 var connString = builder.Configuration.GetValue<string>("ConnectionStrings:DefaultConnection");
 
 builder.Services.AddDbContext<PS4DbContext>(options =>
     options.UseNpgsql(connString));
 
-//Para implementar seguridad
-//builder.Services.AddDbContext<SeguridadDbContext>(options =>
-//{
-//    options.UseNpgsql(builder.Configuration.GetConnectionString("IdentitySeguridad"));
 
-//});
+//Security and Context
+builder.Services.AddIdentityCore<Usuario>()
+                .AddEntityFrameworkStores<SeguridadDbContext>()
+                .AddSignInManager<SignInManager<Usuario>>();
+//.AddDefaultTokenProviders();
+
+builder.Services.AddAuthentication();
+
+builder.Services.Configure<userSysConfig>(builder.Configuration.GetSection("userSysConfig")); //import configured data user
+
+builder.Services.AddDbContext<SeguridadDbContext>(options =>
+{
+    //options.UseNpgsql(builder.Configuration.GetConnectionString("IdentitySeguridad"));
+    options.UseNpgsql(connString);
+
+});
 
 
-//builder.Services.AddSwaggerGen()
-
-
+//Other Services
 builder.Services.AddScoped(typeof(IGenericRepository<>), (typeof(GenericRepository<>)));
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 
+//CORS
 builder.Services.AddCors(opt =>
 {
     opt.AddPolicy("CorsRule", rule =>
@@ -58,6 +67,9 @@ builder.Services.AddCors(opt =>
 
 builder.Services.AddSingleton(TimeProvider.System);
 
+
+//using var scope = builder.Services.BuildServiceProvider().CreateScope();
+//var services = scope.ServiceProvider;
 var app = builder.Build();
 
 using (var scope = app.Services.CreateScope())
@@ -84,16 +96,13 @@ using (var scope = app.Services.CreateScope())
         await PS4DbContextData.AsyncDataLoading(context, loggerFactory);
 
 
-        //otra forma de crar el scope 
-        //using var scope = builder.Services.BuildServiceProvider().CreateScope();
-        //var services = scope.ServiceProvider;
+        //Migraciones de seguridad
+        var userManager = services.GetRequiredService<UserManager<Usuario>>();
+        var identityContext = services.GetRequiredService<SeguridadDbContext>();
+        await identityContext.Database.MigrateAsync();
 
-        //Esta seccion se habilitara cuando se agregguen las migraciones de seguridad
-        //Obtener los servicios normalmente
-        //var userManager = services.GetRequiredService<UserManager<Usuario>>();
-        //var identityContext = services.GetRequiredService<SeguridadDbContext>();
-        //await identityContext.Database.MigrateAsync();
-        //await SeguridadDbContextData.SeedUserAsync(userManager);
+        var configOptions = services.GetRequiredService<IOptions<userSysConfig>>();
+        await SeguridadDbContextData.SeedUserAsync(userManager, configOptions);
 
     }
     catch (Exception ex)
@@ -113,6 +122,11 @@ if (app.Environment.IsDevelopment())
 
 app.UseCors("CorsRule");
 
+app.MapControllers();
+app.Run();
+
+app.UseAuthentication();
+
 //var summaries = new[]
 //{
 //    "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
@@ -130,9 +144,6 @@ app.UseCors("CorsRule");
 //        .ToArray();
 //    return forecast;
 //});
-
-app.MapControllers();
-app.Run();
 
 //internal record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
 //{
