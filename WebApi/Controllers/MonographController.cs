@@ -57,7 +57,7 @@ namespace WebApi.Controllers
             var specCount = new MonographForCountingSpecification(monographParams);
             var totalMonographs = await _monographRepository.CountAsync(specCount);
 
-            var totalPagesRounded = Math.Ceiling(Convert.ToDecimal(totalMonographs / monographParams.PageSize));
+            var totalPagesRounded = Math.Ceiling((Convert.ToDecimal(totalMonographs) / monographParams.PageSize));
             int totalPages = Convert.ToInt32(totalPagesRounded);
 
             //IReadOnlyList<MonographDto> data = _mapper.Map<IReadOnlyList<Monograph>, IReadOnlyList<MonographDto>>(monographs);
