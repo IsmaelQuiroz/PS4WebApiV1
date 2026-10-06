@@ -40,4 +40,33 @@ public class UserController : BaseApiController
             Apellido = usuario.Apellido
         };
     }
+
+    [HttpPost("register")]
+    public async Task<ActionResult<UsuarioDto>> RegisterUser(RegisterUserDto registerUserDto)
+    {
+        var usuario = new Usuario
+        {
+            Email = registerUserDto.Email,
+            UserName = registerUserDto.Username,
+            Nombre = registerUserDto.Nombre,
+            Apellido = registerUserDto.Apellido
+        };
+
+        var resultado = await _userManager.CreateAsync(usuario, registerUserDto.Password);
+        
+        if(!resultado.Succeeded)
+        {
+            return BadRequest(new CodeErrorResponse(401));
+        }
+
+        return new UsuarioDto
+        {
+            Nombre = usuario.Nombre,
+            Apellido = usuario.Apellido,
+            Token = "Este es el Token del usuario",
+            Email = usuario.Email,
+            Username = usuario.UserName
+        };
+
+    }
 }
