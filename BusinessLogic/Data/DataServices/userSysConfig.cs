@@ -12,4 +12,5 @@ public class userSysConfig
     public string Apellido { get; set; } = string.Empty;
     public string Username { get; set; }
     public string Pwd { get; set; }
+    public string Email { get; set; }
 }

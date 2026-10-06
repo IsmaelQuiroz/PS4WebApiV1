@@ -24,7 +24,8 @@ public class SeguridadDbContextData
             {
                 Nombre = _config.Nombre,
                 Apellido = _config.Apellido,
-                UserName = _config.Username
+                UserName = _config.Username,
+                Email = _config.Email
             };
             await userManager.CreateAsync(usuario, _config.Pwd);
         }

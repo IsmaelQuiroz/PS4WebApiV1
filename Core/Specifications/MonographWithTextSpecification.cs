@@ -38,6 +38,10 @@ public class MonographWithTextSpecification : BaseSpecification<Monograph>
                 case "titleDesc":
                     MyAddOrderByDescending(p => p.Title);
                     break;
+                case "categoryCodeAsc":
+                    MyAddOrderBy(p => p.Category.Name);
+                    MyAddOrderBy(p => p.Code);
+                    break;
                 default:
                     MyAddOrderBy(p => p.Title);
                     break;
