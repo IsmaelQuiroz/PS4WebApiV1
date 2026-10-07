@@ -3,9 +3,12 @@ using BusinessLogic.Data.DataServices;
 using BusinessLogic.Logic;
 using Core.Entities;
 using Core.Interfaces;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 using WebApi.Dtos;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -40,7 +43,19 @@ builder.Services.AddIdentityCore<Usuario>()
                 .AddSignInManager<SignInManager<Usuario>>();
 //.AddDefaultTokenProviders();
 
-builder.Services.AddAuthentication();
+//Configuration of the application in function to the Token
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
+{
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuerSigningKey = true,
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Token:Key"])), //Keyword to decryted
+        ValidIssuer = builder.Configuration["Token:Issuer"], //Url from server that it generates the token
+        ValidateIssuer = true,
+        ValidateAudience =false
+    };
+});
+
 
 builder.Services.Configure<userSysConfig>(builder.Configuration.GetSection("userSysConfig")); //import configured data user
 
@@ -55,6 +70,7 @@ builder.Services.AddDbContext<SeguridadDbContext>(options =>
 //Other Services
 builder.Services.AddScoped(typeof(IGenericRepository<>), (typeof(GenericRepository<>)));
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+builder.Services.AddScoped<ITokenService, TokenService>();
 
 //CORS
 builder.Services.AddCors(opt =>
@@ -127,6 +143,7 @@ app.Run();
 
 app.UseAuthentication();
 
+app.UseAuthorization();
 //var summaries = new[]
 //{
 //    "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"

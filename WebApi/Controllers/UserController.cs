@@ -1,6 +1,9 @@
 ﻿using Core.Entities;
+using Core.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 using WebApi.Dtos;
 using WebApi.Errors;
 
@@ -9,11 +12,13 @@ public class UserController : BaseApiController
 {
     private readonly UserManager<Usuario> _userManager;
     private readonly SignInManager<Usuario> _signInManager;
+    private readonly ITokenService _tokenService;
 
-    public UserController(UserManager<Usuario> userManager, SignInManager<Usuario> signInManager)
+    public UserController(UserManager<Usuario> userManager, SignInManager<Usuario> signInManager, ITokenService tokenService)
     {
         _userManager = userManager;
         _signInManager = signInManager;
+        _tokenService = tokenService;
     }
 
     [HttpPost("login")]
@@ -35,7 +40,7 @@ public class UserController : BaseApiController
         {
             Email = usuario.Email,
             Username = usuario.UserName,
-            Token = "This is the user Token",
+            Token = _tokenService.CreateToken(usuario),
             Nombre = usuario.Nombre,
             Apellido = usuario.Apellido
         };
@@ -44,6 +49,7 @@ public class UserController : BaseApiController
     [HttpPost("register")]
     public async Task<ActionResult<UsuarioDto>> RegisterUser(RegisterUserDto registerUserDto)
     {
+        //Validate username and email
         var usuario = new Usuario
         {
             Email = registerUserDto.Email,
@@ -63,10 +69,34 @@ public class UserController : BaseApiController
         {
             Nombre = usuario.Nombre,
             Apellido = usuario.Apellido,
-            Token = "Este es el Token del usuario",
+            Token = _tokenService.CreateToken(usuario),
             Email = usuario.Email,
             Username = usuario.UserName
         };
 
     }
+
+    [Authorize]
+    [HttpGet]
+    public async Task<ActionResult<UsuarioDto>> GetUser()
+    {
+        //Extract email Claim
+        var email = HttpContext.User?.Claims?.FirstOrDefault( x => x.Type == ClaimTypes.Email)?.Value;
+
+        //search for a user based on email
+        var usuario = await _userManager.FindByEmailAsync(email);
+
+        return new UsuarioDto
+        {
+            Nombre = usuario.Nombre,
+            Apellido = usuario.Apellido,
+            Email = usuario.Email,
+            Username = usuario.UserName,
+            Token = _tokenService.CreateToken(usuario)
+
+        };
+    }
+
+
+
 }
