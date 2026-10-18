@@ -72,6 +72,11 @@ builder.Services.AddScoped(typeof(IGenericRepository<>), (typeof(GenericReposito
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 builder.Services.AddScoped<ITokenService, TokenService>();
 
+//Monograph services
+builder.Services.AddScoped<IMonographService, MonographService>();
+builder.Services.AddScoped<IMonographRepository, MonographRepository>();
+
+
 //CORS
 builder.Services.AddCors(opt =>
 {
